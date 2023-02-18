@@ -482,10 +482,11 @@ HEADER_FILES=$(notdir $(HEADERS_PUB))
 
 #This rule cleans the source tree of all compiled code, not including the pdf
 #documentation.
+# Took this out so that it wouldn't delete the main library when creating universal build:
+# -o -name "*.a"
 clean: $(call print-help,clean,Clean everything besides the pdf documentation)
 	find . -type f    -name "*.o"   \
                -o -name "*.lo"  \
-               -o -name "*.a"   \
                -o -name "*.la"  \
                -o -name "*.obj" \
                -o -name "*.lib" \
