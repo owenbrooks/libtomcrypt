@@ -130,7 +130,7 @@ LTC_CFLAGS += -Wno-nullability-completeness
 endif
 
 
-GIT_VERSION := $(shell { [ -e .git ] && which git 2>/dev/null 1>&2 ; } && { printf git- ; git describe --tags --always --dirty ; } || echo $(VERSION))
+GIT_VERSION := $(shell { [ -e .git ] && which git 2>/dev/null 1>&2 ; } && { printf git- ; git describe --tags --always --dirty 2>/dev/null ; } || echo $(VERSION))
 ifneq ($(GIT_VERSION),)
 LTC_CFLAGS += -DGIT_VERSION=\"$(GIT_VERSION)\"
 endif
